@@ -1,3 +1,6 @@
+import Image from "next/image"
+import Link from "next/link"
+
 export default function Home() {
   return (
     <main>
@@ -14,16 +17,17 @@ export default function Home() {
             library of user-submitted models.
           </p>
 
-          <div className="flex gap-4">
-            <button
-              href="/3d-models"
-              className="px-6 py-3 text-black transition duration-100 bg-white border-2 border-black hover:bg-black hover:text-white"
-            >
-              Browse Models
-            </button>
-          </div>
+          <Link href="/3d-models">
+            <div className="flex gap-4">
+              <button
+                className="px-6 py-3 text-black transition duration-100 bg-white border-2 border-black hover:bg-black hover:text-white"
+              >
+                Browse Models
+              </button>
+            </div>
+          </Link>
         </div>
-        <img src="/hero-slash.png" width={350} />
+        <Image src="/hero-slash.png" width={350} height={350} alt="Hero Image" />
       </section>
     </main>
   )

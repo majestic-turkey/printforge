@@ -1,5 +1,7 @@
 import "./globals.css";
+import type {RootLayoutProps} from "./types/index";
 import Image from "next/image";
+import Link from "next/link";
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google";
 
 const albertSans = Albert_Sans({
@@ -17,9 +19,7 @@ const montserratAlternates = Montserrat_Alternates({
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${albertSans.variable} ${montserratAlternates.variable}`}>
@@ -44,8 +44,12 @@ export default function RootLayout({
               />
             </div>
             <ul className="flex items-center gap-2.5">
-              <p>3D Models</p>
-              <p>About</p>
+              <li>
+                <Link href="/models">3D Models</Link>
+              </li>
+              <li>
+                <Link href="/about">About</Link>
+              </li>
             </ul>
           </nav>
         </header>
