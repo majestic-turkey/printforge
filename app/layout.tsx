@@ -27,13 +27,15 @@ export default function RootLayout({
           <nav className="flex justify-between px-6 py-4">
             <div className="relative">
               {/* Desktop logo */}
+              <Link href="/">
               <Image
                 src="/printforge-logo.png"
                 alt="PrintForge Logo"
                 width={200}
                 height={50}
                 className="w-50 h-auto hidden md:block"
-              />
+                />
+                </Link>
               {/* Mobile logo */}
               <Image
                 src="/printforge-logo-mobile.png"
