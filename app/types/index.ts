@@ -45,3 +45,9 @@ export type PillProps = {
     children: ReactNode
     className?: string
 }
+
+export type CategoryPageProps = {
+    params: Promise<{
+        categoryName: string
+    }>
+}
