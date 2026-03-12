@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
     return (
         <main>
@@ -7,11 +9,12 @@ export default function About() {
                 </h1>
 
                 <div className="grid items-center gap-8 mb-12 md:grid-cols-2">
-                    <div className="relative h-[300px] w-full">
-                        <img
+                    <div className="relative h-75 w-full">
+                        <Image
                             src="/hero-block.png"
                             alt="PrintForge Community - A group of makers collaborating on 3D printing projects"
-                            width="350"
+                            width={350}
+                            height={300}
                         />
                     </div>
                     <div>
@@ -84,11 +87,11 @@ export default function About() {
                         revolutionizing the way we create, prototype, and
                         manufacture. Our platform serves as a bridge between
                         designers and makers, enabling the sharing of knowledge
-                        and creativity that pushes the boundaries of what's
+                        and creativity that pushes the boundaries of what&apos;s
                         possible with 3D printing.
                     </p>
                     <p className="text-gray-700">
-                        Whether you're a hobbyist looking for your next weekend
+                        Whether you&apos;re a hobbyist looking for your next weekend
                         project, an educator seeking teaching materials, or a
                         professional designer wanting to share your creations,
                         PrintForge provides the tools and community to support
