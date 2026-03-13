@@ -1,8 +1,6 @@
 import "./globals.css";
 import type {RootLayoutProps} from "./types/index";
-import Image from "next/image";
-import Link from "next/link";
-import NavLink from "@/app/components/NavLink";
+import Navbar from "@/app/components/NavBar";
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google";
 
 const albertSans = Albert_Sans({
@@ -24,38 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${albertSans.variable} ${montserratAlternates.variable}`}>
-        <header className="w-full bg-white">
-          <nav className="flex justify-between px-6 py-4">
-            <div className="relative">
-              {/* Desktop logo */}
-              <Link href="/">
-              <Image
-                src="/printforge-logo.png"
-                alt="PrintForge Logo"
-                width={200}
-                height={50}
-                className="w-50 h-auto hidden md:block"
-                />
-                </Link>
-              {/* Mobile logo */}
-              <Image
-                src="/printforge-logo-mobile.png"
-                alt="PrintForge Logo"
-                width={40}
-                height={40}
-                className="w-10 h-auto block md:hidden"
-              />
-            </div>
-            <ul className="flex items-center gap-2.5">
-              <li className="text-sm uppercase">
-                <NavLink href="/3d-models">3D Models</NavLink>
-              </li>
-              <li className="text-sm uppercase">
-                <NavLink href="/about">About</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        <Navbar />
         {children}
       </body>
     </html>

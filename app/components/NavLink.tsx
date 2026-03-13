@@ -1,8 +1,8 @@
 import Link from "next/link"
 
-export default function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+export default function NavLink({ href, isActive = false, children }: { href: string; isActive?: boolean; children: React.ReactNode }) {
     return (
-        <Link href={href} className="hover:text-orange-accent px-4 py-2 text-gray-700 transition-colors rounded-md cursor-pointer">
+        <Link href={href} className={`${isActive ? "text-orange-accent" : "text-gray-700"} px-4 py-2 transition-colors rounded-md cursor-pointer`}>
             {children}
         </Link>
     )

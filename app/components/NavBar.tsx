@@ -1,25 +1,33 @@
+"use client"
+
 import NavLink from "@/app/components/NavLink"
 import Image from "next/image"
-import PFLogoIcon from "@/public/printforge-logo-icon.svg"
-import PFLogo from "@/public/printforge-logo.svg"
+import {usePathname} from "next/navigation"
 
 export default function Navbar() {
+
+  const pathname = usePathname()
+
   return (
     <header className="w-full bg-white">
       <nav className="flex justify-between px-6 py-4">
-        <NavLink href="/">
+        <NavLink href="/" isActive={pathname === "/"}>
           <div className="relative cursor-pointer">
             {/* Desktop Logo */}
             <Image
-              src={PFLogo}
+              src="/printforge-logo.png"
               alt="PrintForge Logo"
+              width={200}
+              height={50}
               className="w-50 h-auto hidden md:block"
               priority
             />
             {/* Mobile Logo */}
             <Image
-              src={PFLogoIcon}
+              src="/printforge-logo-mobile.png"
               alt="PrintForge Logo"
+              width={40}
+              height={40}
               className="w-10 h-auto block md:hidden"
               priority
             />
@@ -27,10 +35,10 @@ export default function Navbar() {
         </NavLink>
         <ul className="flex items-center gap-2.5">
           <li className="text-sm uppercase">
-            <NavLink href="/3d-models">3D Models</NavLink>
+            <NavLink href="/3d-models" isActive={pathname.startsWith("/3d-models")}>3D Models</NavLink>
           </li>
           <li className="text-sm uppercase">
-            <NavLink href="/about">About</NavLink>
+            <NavLink href="/about" isActive={pathname === "/about"}>About</NavLink>
           </li>
         </ul>
       </nav>

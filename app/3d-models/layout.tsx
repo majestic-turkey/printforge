@@ -1,9 +1,12 @@
+"use client"
 import NavLink from "@/app/components/NavLink"
 import type { ReactNode } from "react"
 import { getAllCategories } from "@/app/lib/categories"
 import type { Category } from "@/app/types"
+import { usePathname } from "next/navigation"
 
 export default function ModelsLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
   const categories: Category[] = getAllCategories()
   console.log(categories)
   return (
@@ -20,6 +23,7 @@ export default function ModelsLayout({ children }: { children: ReactNode }) {
                 <NavLink
                   href={`/3d-models/categories/${item.slug}`}
                   key={item.slug}
+                  isActive={pathname === `/3d-models/categories/${item.slug}`}
                 >
                   {item.displayName}
                 </NavLink>
