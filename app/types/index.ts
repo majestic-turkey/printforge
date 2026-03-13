@@ -44,6 +44,7 @@ export type ModelsGridProps = {
 export type PillProps = {
     children: ReactNode
     className?: string
+    role?: string
 }
 
 export type CategoryPageProps = {

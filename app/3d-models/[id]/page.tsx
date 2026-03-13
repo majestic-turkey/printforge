@@ -3,7 +3,7 @@ import Image from "next/image"
 import Pill from "@/app/components/Pill"
 import type { ModelDetailPageProps } from "@/app/types"
 import { getModelById } from "@/app/lib/models"
-import placeholderImg from "@/public/placeholder.png"
+import placeholderImg from "@/public/hero-block.png"
 
 export default async function ModelDetailPage({ params }: ModelDetailPageProps) {
   const { id } = await params

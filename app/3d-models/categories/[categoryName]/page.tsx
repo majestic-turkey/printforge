@@ -1,5 +1,5 @@
-import { getCategoryBySlug, getAllCategories } from "../../lib/categories"
-import type {CategoryPageProps} from "../../types"
+import { getCategoryBySlug, getAllCategories } from "../../../lib/categories"
+import type {CategoryPageProps} from "../../../types"
 
 export async function generateStaticParams() {
     const categories = getAllCategories()
