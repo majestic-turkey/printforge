@@ -2,6 +2,7 @@ import "./globals.css";
 import type {RootLayoutProps} from "./types/index";
 import Image from "next/image";
 import Link from "next/link";
+import NavLink from "@/app/components/NavLink";
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google";
 
 const albertSans = Albert_Sans({
@@ -46,11 +47,11 @@ export default function RootLayout({
               />
             </div>
             <ul className="flex items-center gap-2.5">
-              <li>
-                <Link href="/3d-models">3D Models</Link>
+              <li className="text-sm uppercase">
+                <NavLink href="/3d-models">3D Models</NavLink>
               </li>
-              <li>
-                <Link href="/about">About</Link>
+              <li className="text-sm uppercase">
+                <NavLink href="/about">About</NavLink>
               </li>
             </ul>
           </nav>
