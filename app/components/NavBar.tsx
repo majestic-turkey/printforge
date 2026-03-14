@@ -3,6 +3,8 @@
 import NavLink from "@/app/components/NavLink"
 import Image from "next/image"
 import {usePathname} from "next/navigation"
+import desktopLogoImg from "@/public/printforge-logo.png"
+import mobileLogoImg from "@/public/printforge-logo-mobile.png"
 
 export default function Navbar() {
 
@@ -15,7 +17,7 @@ export default function Navbar() {
           <div className="relative cursor-pointer">
             {/* Desktop Logo */}
             <Image
-              src="/printforge-logo.png"
+              src={desktopLogoImg}
               alt="PrintForge Logo"
               width={200}
               height={50}
@@ -24,7 +26,7 @@ export default function Navbar() {
             />
             {/* Mobile Logo */}
             <Image
-              src="/printforge-logo-mobile.png"
+              src={mobileLogoImg}
               alt="PrintForge Logo"
               width={40}
               height={40}

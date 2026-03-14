@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import heroSlashImg from "@/public/hero-slash.png"
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
-        <Image src="/hero-slash.png" width={350} height={350} alt="Hero Image" />
+        <Image src={heroSlashImg} width={350} height={350} alt="Hero Image" />
       </section>
     </main>
   )
