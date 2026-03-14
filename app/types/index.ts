@@ -31,6 +31,10 @@ export type ModelDetailPageProps = {
     }>
 }
 
+export type GetModelsParams = {
+    category?: string
+}
+
 // Components Types
 export type ModelCardProps = {
     model: Model

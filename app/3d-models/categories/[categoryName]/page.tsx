@@ -1,14 +1,11 @@
-import { getCategoryBySlug, getAllCategories } from "../../../lib/categories"
+import { getCategoryBySlug } from "../../../lib/categories"
 import type {CategoryPageProps} from "../../../types"
-
-export async function generateStaticParams() {
-    const categories = getAllCategories()
-    return categories.map((category) => ({
-        categoryName: category.slug
-    }))
-}
+import ModelsGrid from '@/app/components/ModelsGrid'
+import { getModels } from "@/app/lib/models"
 
 export default async function CategoryPage({params}: CategoryPageProps) {
     const { categoryName } = await params
-    return (<h1>{getCategoryBySlug(categoryName)?.displayName}</h1>)
+    const category = getCategoryBySlug(categoryName)
+    const models = await getModels({ category: category.slug })
+    return (<ModelsGrid title={category.displayName} models={models} />)
 }
