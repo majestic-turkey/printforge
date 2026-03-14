@@ -2,8 +2,18 @@ import { FaRegHeart } from "react-icons/fa6"
 import Image from "next/image"
 import Pill from "@/app/components/Pill"
 import type { ModelDetailPageProps } from "@/app/types"
-import { getModelById } from "@/app/lib/models"
+import { getAllModels, getModelById } from "@/app/lib/models"
 import placeholderImg from "@/public/hero-block.png"
+
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const models = await getAllModels()
+
+  return models.map((model) => ({
+    id: model.id.toString(),
+  }))
+}
 
 export default async function ModelDetailPage({ params }: ModelDetailPageProps) {
   const { id } = await params

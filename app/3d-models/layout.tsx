@@ -5,10 +5,16 @@ import { getAllCategories } from "@/app/lib/categories"
 import type { Category } from "@/app/types"
 import { usePathname } from "next/navigation"
 
+function normalizePath(path: string): string {
+  if (path.length > 1 && path.endsWith("/")) {
+    return path.slice(0, -1)
+  }
+  return path
+}
+
 export default function ModelsLayout({ children }: { children: ReactNode }) {
-  const pathname = usePathname()
+  const pathname = normalizePath(usePathname())
   const categories: Category[] = getAllCategories()
-  console.log(categories)
   return (
     <div className="relative flex flex-col min-h-screen md:flex-row ml-7">
       {/* Responsive Navigation */}
@@ -16,18 +22,22 @@ export default function ModelsLayout({ children }: { children: ReactNode }) {
         <div className="relative">
           <nav className="w-full overflow-x-auto md:overflow-visible scrollbar-hide">
             <ul className="flex px-4 py-3 space-x-4 whitespace-nowrap md:flex-col md:p-0 md:space-x-0 md:space-y-3">
-              <NavLink href="/3d-models" isActive={pathname === "/3d-models"} className="font-bold">
+              <NavLink href="/3d-models" isActive={pathname === normalizePath("/3d-models")} className="font-bold">
                 All
               </NavLink>
-              {categories.map(item => (
-                <NavLink
-                  href={`/3d-models/categories/${item.slug}`}
-                  key={item.slug}
-                  isActive={pathname === `/3d-models/categories/${item.slug}`}
-                >
-                  {item.displayName}
-                </NavLink>
-              ))}
+              {categories.map(item => {
+                const categoryHref = `/3d-models/categories/${item.slug}`
+
+                return (
+                  <NavLink
+                    href={categoryHref}
+                    key={item.slug}
+                    isActive={pathname === normalizePath(categoryHref)}
+                  >
+                    {item.displayName}
+                  </NavLink>
+                )
+              })}
             </ul>
           </nav>
           {/* Fading edge/gradient for horizontal scroll hint on mobile */}
